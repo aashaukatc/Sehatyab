@@ -1,0 +1,56 @@
+{
+  "colors": {
+    "brand": {
+      "green":       "#2d5a27",
+      "greenLight":  "#4a7c42",
+      "greenPale":   "#e8f0e6",
+      "cream":       "#f9f5ef",
+      "creamWarm":   "#f2ead8",
+      "gold":        "#c9a84c",
+      "goldPale":    "#f0e5c4",
+      "earth":       "#8b6b4a",
+      "charcoal":    "#1e1e1e",
+      "muted":       "#5c5c5c"
+    },
+    "fuel": {
+      "primary":     "#1a2420",
+      "accent":      "#7ab648",
+      "bg":          "#1e2b1e",
+      "text":        "#e8f4e0"
+    },
+    "nurture": {
+      "primary":     "#5a3e28",
+      "accent":      "#c97d4e",
+      "bg":          "#fdf6ed",
+      "text":        "#3d2b1a"
+    },
+    "glow": {
+      "primary":     "#4a2535",
+      "accent":      "#d4789a",
+      "bg":          "#fdf5f7",
+      "text":        "#3a2030"
+    }
+  },
+  "typography": {
+    "display":  "Cormorant Garamond",
+    "body":     "DM Sans",
+    "accent":   "Playfair Display"
+  },
+  "spacing": {
+    "xs":  "0.25rem",
+    "sm":  "0.5rem",
+    "md":  "1rem",
+    "lg":  "1.5rem",
+    "xl":  "2rem",
+    "2xl": "3rem",
+    "3xl": "4rem",
+    "4xl": "6rem"
+  },
+  "radii": {
+    "sm":   "8px",
+    "md":   "16px",
+    "lg":   "24px",
+    "xl":   "32px",
+    "pill": "100px"
+  }
+}

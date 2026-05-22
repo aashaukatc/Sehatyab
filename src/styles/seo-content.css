@@ -1,0 +1,156 @@
+/* ================================================================
+   seo-content.css — Sehatyaab Fresh Batch
+   Brand story, about sections, SEO-relevant content blocks
+   ================================================================ */
+
+/* ── BRAND STORY ─────────────────────────────────────────────── */
+.brand-story {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: var(--sp-4xl) var(--sp-xl);
+  text-align: center;
+}
+
+.brand-story__pre {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brand-green);
+  margin-bottom: var(--sp-lg);
+}
+
+.brand-story__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--brand-charcoal);
+  margin-bottom: var(--sp-xl);
+}
+
+.brand-story__title em {
+  font-style: italic;
+  color: var(--brand-green);
+}
+
+.brand-story__text {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--brand-muted);
+  white-space: pre-line;
+}
+
+/* ── WHY MADE TO ORDER ───────────────────────────────────────── */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--sp-lg);
+}
+
+.why-item {
+  padding: var(--sp-xl) var(--sp-lg);
+  border-radius: var(--r-lg);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.why-item__icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: var(--sp-md);
+}
+
+.why-item__title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--brand-charcoal);
+  margin-bottom: var(--sp-sm);
+}
+
+.why-item__desc {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--brand-muted);
+}
+
+/* ── INGREDIENT TRANSPARENCY SECTION ────────────────────────── */
+.ingredients-section {
+  padding: var(--sp-4xl) 0;
+  background: linear-gradient(180deg, rgba(232, 240, 230, 0.3) 0%, transparent 100%);
+}
+
+.ingredient-count-badge {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  background: var(--brand-green);
+  color: #fff;
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--r-pill);
+  margin-bottom: var(--sp-xl);
+}
+
+.ingredient-count-badge__num {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.ingredient-count-badge__text {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+/* ── FINAL CTA BANNER ────────────────────────────────────────── */
+.cta-banner {
+  text-align: center;
+  padding: var(--sp-4xl) var(--sp-xl);
+  position: relative;
+  z-index: 2;
+}
+
+.cta-banner__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--brand-charcoal);
+  margin-bottom: var(--sp-lg);
+}
+
+.cta-banner__title em {
+  font-style: italic;
+  color: var(--brand-green);
+}
+
+.cta-banner__sub {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--brand-muted);
+  max-width: 500px;
+  margin: 0 auto var(--sp-xl);
+}
+
+.cta-banner__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-md);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .why-grid { grid-template-columns: 1fr 1fr; }
+  .brand-story { padding: var(--sp-3xl) var(--sp-md); }
+}

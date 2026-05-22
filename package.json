@@ -1,0 +1,14 @@
+{
+  "name": "sehatyaab-fresh-batch",
+  "version": "1.0.0",
+  "description": "Sehatyaab Fresh Batch — Premium Pakistani small-batch, made-to-order nourishment brand",
+  "private": true,
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}

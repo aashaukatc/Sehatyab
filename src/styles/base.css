@@ -1,0 +1,253 @@
+/* ================================================================
+   base.css — Sehatyaab Fresh Batch
+   Design tokens, CSS variables, typography, resets
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* ── DESIGN TOKENS ────────────────────────────────────────────── */
+:root {
+  /* Brand Palette */
+  --brand-green:       #2d5a27;
+  --brand-green-light: #4a7c42;
+  --brand-green-pale:  #e8f0e6;
+  --brand-cream:       #f9f5ef;
+  --brand-cream-warm:  #f2ead8;
+  --brand-gold:        #c9a84c;
+  --brand-gold-pale:   #f0e5c4;
+  --brand-earth:       #8b6b4a;
+  --brand-charcoal:    #1e1e1e;
+  --brand-muted:       #5c5c5c;
+  --brand-border:      rgba(0, 0, 0, 0.07);
+
+  /* Fuel (Protein) — Charcoal + Lime */
+  --fuel-primary:   #1a2420;
+  --fuel-accent:    #7ab648;
+  --fuel-glow:      rgba(122, 182, 72, 0.18);
+  --fuel-bg:        #1e2b1e;
+  --fuel-text:      #e8f4e0;
+  --fuel-muted:     rgba(232, 244, 224, 0.6);
+  --fuel-border:    rgba(122, 182, 72, 0.25);
+
+  /* Nurture (Crunch) — Cream + Kraft + Clay */
+  --nurture-primary: #5a3e28;
+  --nurture-accent:  #c97d4e;
+  --nurture-glow:    rgba(201, 125, 78, 0.15);
+  --nurture-bg:      #fdf6ed;
+  --nurture-text:    #3d2b1a;
+  --nurture-muted:   rgba(61, 43, 26, 0.6);
+  --nurture-border:  rgba(201, 125, 78, 0.25);
+
+  /* Glow (Nourish) — Cream + Blush + Rose */
+  --glow-primary:  #4a2535;
+  --glow-accent:   #d4789a;
+  --glow-glow:     rgba(212, 120, 154, 0.15);
+  --glow-bg:       #fdf5f7;
+  --glow-text:     #3a2030;
+  --glow-muted:    rgba(58, 32, 48, 0.6);
+  --glow-border:   rgba(212, 120, 154, 0.25);
+
+  /* Aurora Glass */
+  --glass-bg:           rgba(255, 255, 255, 0.35);
+  --glass-bg-strong:    rgba(255, 255, 255, 0.55);
+  --glass-border:       rgba(255, 255, 255, 0.4);
+  --glass-shadow:       0 4px 30px rgba(0, 0, 0, 0.04), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  --glass-shadow-hover: 0 8px 40px rgba(0, 0, 0, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  --glass-blur:         blur(25px) saturate(180%);
+
+  /* Typography */
+  --font-display: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-body:    'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-accent:  'Playfair Display', Georgia, serif;
+
+  /* Spacing scale */
+  --sp-xs:  0.25rem;
+  --sp-sm:  0.5rem;
+  --sp-md:  1rem;
+  --sp-lg:  1.5rem;
+  --sp-xl:  2rem;
+  --sp-2xl: 3rem;
+  --sp-3xl: 4rem;
+  --sp-4xl: 6rem;
+
+  /* Radii */
+  --r-sm:  8px;
+  --r-md:  16px;
+  --r-lg:  24px;
+  --r-xl:  32px;
+  --r-pill: 100px;
+
+  /* Transitions */
+  --t-fast:   0.15s ease;
+  --t-base:   0.3s ease;
+  --t-slow:   0.6s ease;
+  --t-spring: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  /* Content max widths */
+  --content-sm:  640px;
+  --content-md:  800px;
+  --content-lg: 1100px;
+  --content-xl: 1280px;
+}
+
+/* ── RESET ────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--brand-charcoal);
+  background: var(--brand-cream);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ── TYPOGRAPHY ───────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(2.2rem, 6vw, 4.5rem); }
+h2 { font-size: clamp(1.8rem, 4vw, 3rem);   }
+h3 { font-size: clamp(1.3rem, 3vw, 2rem);   }
+h4 { font-size: clamp(1.1rem, 2.5vw, 1.5rem); }
+
+.display-serif {
+  font-family: var(--font-display);
+  font-style: italic;
+}
+
+.display-bold {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--brand-muted);
+}
+
+p.lead {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.7;
+}
+
+/* ── UTILITY CLASSES ─────────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--content-lg);
+  margin: 0 auto;
+  padding: 0 var(--sp-lg);
+}
+
+.container--wide {
+  max-width: var(--content-xl);
+}
+
+.container--narrow {
+  max-width: var(--content-md);
+}
+
+.text-center { text-align: center; }
+.text-left   { text-align: left; }
+.text-right  { text-align: right; }
+
+.section {
+  padding: var(--sp-4xl) 0;
+}
+
+.section--tight {
+  padding: var(--sp-3xl) 0;
+}
+
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brand-green);
+  margin-bottom: var(--sp-md);
+  display: block;
+}
+
+.section-heading {
+  font-family: var(--font-display);
+  margin-bottom: var(--sp-lg);
+}
+
+.section-subtext {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--brand-muted);
+  max-width: 600px;
+  margin: 0 auto var(--sp-xl);
+}
+
+/* ── ACCESSIBILITY ────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--brand-green);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

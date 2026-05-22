@@ -1,0 +1,266 @@
+/* ================================================================
+   premium-copy.css — Sehatyaab Fresh Batch
+   Premium editorial typography classes, pull quotes, labels
+   ================================================================ */
+
+/* ── SECTION DIVIDERS ────────────────────────────────────────── */
+.section-rule {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-lg);
+  margin: var(--sp-3xl) 0 var(--sp-2xl);
+}
+
+.section-rule::before,
+.section-rule::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--brand-border), transparent);
+}
+
+.section-rule__text {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brand-muted);
+  white-space: nowrap;
+}
+
+/* ── PULL QUOTE ──────────────────────────────────────────────── */
+.pull-quote {
+  padding: var(--sp-xl) var(--sp-2xl);
+  border-left: 3px solid var(--brand-green);
+  margin: var(--sp-2xl) 0;
+}
+
+.pull-quote__text {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--brand-charcoal);
+  line-height: 1.5;
+}
+
+.pull-quote__attr {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--brand-muted);
+  margin-top: var(--sp-md);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+/* ── STAT GRID ───────────────────────────────────────────────── */
+.stat-row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3xl);
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: var(--sp-2xl) 0;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-item__value {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: var(--brand-green);
+  line-height: 1;
+  display: block;
+}
+
+.stat-item__label {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brand-muted);
+  margin-top: 0.3rem;
+}
+
+/* ── INLINE ICON LIST ────────────────────────────────────────── */
+.icon-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-md);
+}
+
+.icon-list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-md);
+}
+
+.icon-list__icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.icon-list__text {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--brand-muted);
+}
+
+/* ── FOOTER ──────────────────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--brand-border);
+  padding: var(--sp-3xl) var(--sp-xl);
+  position: relative;
+  z-index: 2;
+}
+
+.footer-inner {
+  max-width: var(--content-lg);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: var(--sp-3xl);
+}
+
+.footer-brand__name {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--brand-charcoal);
+  margin-bottom: 0.2rem;
+}
+
+.footer-brand__tagline {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--brand-muted);
+  margin-bottom: var(--sp-lg);
+}
+
+.footer-brand__promise {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--brand-earth);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.footer-nav__title {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brand-charcoal);
+  margin-bottom: var(--sp-lg);
+}
+
+.footer-nav__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-sm);
+}
+
+.footer-nav__links a {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--brand-muted);
+  text-decoration: none;
+  transition: color var(--t-fast);
+  cursor: pointer;
+}
+
+.footer-nav__links a:hover { color: var(--brand-green); }
+
+.footer-bottom {
+  margin-top: var(--sp-3xl);
+  padding-top: var(--sp-lg);
+  border-top: 1px solid var(--brand-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--sp-md);
+}
+
+.footer-bottom__copy {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--brand-muted);
+}
+
+.footer-bottom__disclaimer {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--brand-muted);
+  max-width: 500px;
+  line-height: 1.5;
+  opacity: 0.7;
+}
+
+/* WhatsApp floating button */
+.wa-float {
+  position: fixed;
+  bottom: var(--sp-xl);
+  right: var(--sp-xl);
+  z-index: 50;
+  width: 58px;
+  height: 58px;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  text-decoration: none;
+  font-size: 1.6rem;
+  transition: transform var(--t-spring), box-shadow var(--t-base);
+  cursor: pointer;
+}
+
+.wa-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+}
+
+.wa-float__tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--brand-charcoal);
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--r-sm);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--t-fast);
+}
+
+.wa-float:hover .wa-float__tooltip {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: var(--sp-xl);
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .pull-quote { padding: var(--sp-lg); }
+  .wa-float   { bottom: var(--sp-lg); right: var(--sp-lg); width: 52px; height: 52px; }
+}

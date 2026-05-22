@@ -1,0 +1,203 @@
+/* ================================================================
+   nav.css — Sehatyaab Fresh Batch
+   Navigation styles
+   ================================================================ */
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-md) var(--sp-xl);
+  max-width: var(--content-xl);
+  margin: 0 auto;
+  height: 68px;
+}
+
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-logo__name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--brand-green);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.nav-logo__sub {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brand-earth);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-xl);
+}
+
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--brand-muted);
+  text-decoration: none;
+  transition: color var(--t-fast);
+  letter-spacing: 0.02em;
+}
+
+.nav-links a:hover {
+  color: var(--brand-green);
+}
+
+.nav-links a.active {
+  color: var(--brand-green);
+  font-weight: 600;
+}
+
+/* Product theme pills in nav */
+.nav-pill {
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--r-pill);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: all var(--t-fast);
+  border: 1px solid transparent;
+}
+
+.nav-pill.fuel-pill {
+  color: var(--fuel-accent);
+  border-color: var(--fuel-border);
+  background: rgba(122, 182, 72, 0.08);
+}
+.nav-pill.fuel-pill:hover {
+  background: var(--fuel-bg);
+  color: var(--fuel-accent);
+}
+
+.nav-pill.nurture-pill {
+  color: var(--nurture-accent);
+  border-color: var(--nurture-border);
+  background: rgba(201, 125, 78, 0.08);
+}
+.nav-pill.nurture-pill:hover {
+  background: var(--nurture-primary);
+  color: #fff;
+}
+
+.nav-pill.glow-pill {
+  color: var(--glow-accent);
+  border-color: var(--glow-border);
+  background: rgba(212, 120, 154, 0.08);
+}
+.nav-pill.glow-pill:hover {
+  background: var(--glow-primary);
+  color: #fff;
+}
+
+/* CTA button in nav */
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.1rem;
+  background: var(--brand-green);
+  color: #fff;
+  border-radius: var(--r-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: background var(--t-fast), transform var(--t-fast), box-shadow var(--t-fast);
+  box-shadow: 0 2px 12px rgba(45, 90, 39, 0.25);
+  cursor: pointer;
+  border: none;
+}
+
+.nav-cta:hover {
+  background: var(--brand-green-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(45, 90, 39, 0.35);
+}
+
+/* Mobile hamburger */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0.4rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  z-index: 110;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--brand-green);
+  border-radius: 2px;
+  transition: transform var(--t-base), opacity var(--t-base);
+}
+
+.nav-toggle.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile menu */
+.nav-mobile-menu {
+  display: none;
+  position: fixed;
+  top: 68px;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  z-index: 99;
+  padding: var(--sp-lg) var(--sp-xl);
+  flex-direction: column;
+  gap: var(--sp-md);
+}
+
+.nav-mobile-menu.is-open {
+  display: flex;
+}
+
+.nav-mobile-menu a {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--brand-charcoal);
+  padding: var(--sp-sm) 0;
+  border-bottom: 1px solid var(--brand-border);
+  display: block;
+}
+
+.nav-mobile-menu a:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .nav-links   { display: none; }
+  .nav-toggle  { display: flex; }
+  .site-nav    { padding: var(--sp-md) var(--sp-lg); }
+}

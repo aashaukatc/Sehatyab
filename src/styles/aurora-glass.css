@@ -1,0 +1,283 @@
+/* ================================================================
+   aurora-glass.css — Sehatyaab Fresh Batch
+   Aurora Glassmorphism / Dynamic Mesh Glass design system
+   ================================================================ */
+
+/* ── DYNAMIC MESH BACKGROUND ─────────────────────────────────── */
+.aurora-bg {
+  position: relative;
+  min-height: 100vh;
+  background: var(--brand-cream);
+  overflow: hidden;
+}
+
+.aurora-bg::before,
+.aurora-bg::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Primary mesh blobs */
+.aurora-bg::before {
+  background:
+    radial-gradient(ellipse 80% 60% at 15% 20%,  rgba(45, 90, 39, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 85% 15%,  rgba(201, 168, 76, 0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 50% at 50% 80%,  rgba(212, 120, 154, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 70% at 80% 60%,  rgba(201, 125, 78, 0.09) 0%, transparent 55%),
+    radial-gradient(ellipse 90% 40% at 10% 75%,  rgba(122, 182, 72, 0.07) 0%, transparent 50%);
+  animation: aurora-drift-1 20s ease-in-out infinite alternate;
+}
+
+/* Secondary mesh layer */
+.aurora-bg::after {
+  background:
+    radial-gradient(ellipse 55% 75% at 70% 25%,  rgba(45, 90, 39, 0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 75% 45% at 25% 60%,  rgba(249, 245, 239, 0.6) 0%, transparent 40%),
+    radial-gradient(ellipse 40% 60% at 90% 85%,  rgba(201, 168, 76, 0.07) 0%, transparent 50%);
+  animation: aurora-drift-2 25s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-drift-1 {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(2%, 1%) scale(1.01); }
+  66%  { transform: translate(-1%, 2%) scale(1.02); }
+  100% { transform: translate(1%, -1%) scale(1); }
+}
+
+@keyframes aurora-drift-2 {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(-2%, 1%) scale(1.015); }
+  100% { transform: translate(1%, -2%) scale(1.01); }
+}
+
+/* CSS-only grain/noise micro texture */
+.aurora-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  mix-blend-mode: multiply;
+}
+
+/* ── BASE GLASS CLASSES ───────────────────────────────────────── */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.premium-glass {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(32px) saturate(200%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.04),
+    0 1px 0 rgba(255, 255, 255, 0.8) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.03) inset;
+}
+
+.aurora-panel {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(40px) saturate(180%) brightness(105%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%) brightness(105%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--r-xl);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.05),
+    0 4px 20px rgba(0, 0, 0, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  position: relative;
+  z-index: 2;
+}
+
+/* ── GLASS NAV ────────────────────────────────────────────────── */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+/* ── GLASS CARDS ─────────────────────────────────────────────── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.42);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: var(--r-lg);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: transform var(--t-base), box-shadow var(--t-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+/* Contextual glows on product cards */
+.glass-card.theme-fuel {
+  border-color: var(--fuel-border);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.04),
+    0 0 0 1px var(--fuel-border),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+.glass-card.theme-fuel:hover {
+  box-shadow:
+    0 12px 40px var(--fuel-glow),
+    0 0 0 1px var(--fuel-border),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.glass-card.theme-nurture {
+  border-color: var(--nurture-border);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.04),
+    0 0 0 1px var(--nurture-border),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+.glass-card.theme-nurture:hover {
+  box-shadow:
+    0 12px 40px var(--nurture-glow),
+    0 0 0 1px var(--nurture-border),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.glass-card.theme-glow {
+  border-color: var(--glow-border);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.04),
+    0 0 0 1px var(--glow-border),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+.glass-card.theme-glow:hover {
+  box-shadow:
+    0 12px 40px var(--glow-glow),
+    0 0 0 1px var(--glow-border),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+/* ── GLASS CTA BUTTONS ────────────────────────────────────────── */
+.glass-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-sm);
+  padding: 0.85rem 1.8rem;
+  border-radius: var(--r-pill);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: transform var(--t-fast), box-shadow var(--t-base), background var(--t-fast);
+  text-decoration: none;
+  border: none;
+  white-space: nowrap;
+}
+
+.glass-cta:hover {
+  transform: translateY(-2px);
+}
+
+.glass-cta:active {
+  transform: translateY(0px);
+}
+
+/* Primary CTA — WhatsApp green */
+.glass-cta--primary {
+  background: var(--brand-green);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(45, 90, 39, 0.3);
+}
+.glass-cta--primary:hover {
+  background: var(--brand-green-light);
+  box-shadow: 0 8px 30px rgba(45, 90, 39, 0.4);
+}
+
+/* Secondary CTA — ghost glass */
+.glass-cta--secondary {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(45, 90, 39, 0.3);
+  color: var(--brand-green);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+.glass-cta--secondary:hover {
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* WhatsApp CTA — vibrant */
+.glass-cta--whatsapp {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+}
+.glass-cta--whatsapp:hover {
+  background: linear-gradient(135deg, #2fe470, #15a086);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.45);
+}
+
+/* Theme-tinted CTAs */
+.glass-cta--fuel {
+  background: linear-gradient(135deg, var(--fuel-bg), #2a3a1a);
+  color: var(--fuel-accent);
+  border: 1px solid var(--fuel-border);
+  box-shadow: 0 4px 20px var(--fuel-glow);
+}
+
+.glass-cta--nurture {
+  background: linear-gradient(135deg, var(--nurture-primary), #7a4e30);
+  color: #fff;
+  box-shadow: 0 4px 20px var(--nurture-glow);
+}
+
+.glass-cta--glow {
+  background: linear-gradient(135deg, var(--glow-primary), #6b3050);
+  color: #fff;
+  box-shadow: 0 4px 20px var(--glow-glow);
+}
+
+/* ── PRINT CARDS ─────────────────────────────────────────────── */
+.print-card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(45, 90, 39, 0.15);
+  border-radius: var(--r-md);
+  padding: var(--sp-xl);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* ── DEPTH LAYERS ─────────────────────────────────────────────── */
+.depth-1 { position: relative; z-index: 2; }
+.depth-2 { position: relative; z-index: 3; }
+.depth-3 { position: relative; z-index: 4; }
+
+/* ── REDUCED MOTION ──────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .aurora-bg::before,
+  .aurora-bg::after {
+    animation: none;
+  }
+}
