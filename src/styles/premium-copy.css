@@ -58,8 +58,8 @@
 .stat-row {
   display: flex;
   align-items: center;
-  gap: var(--sp-3xl);
-  flex-wrap: wrap;
+  gap: var(--sp-2xl);
+  
   justify-content: center;
   padding: var(--sp-2xl) 0;
 }
@@ -224,7 +224,7 @@
   align-items: center;
   justify-content: center;
   gap: var(--sp-md);
-  flex-wrap: wrap;
+  
 }
 
 /* ── FOOTER ──────────────────────────────────────────────────── */
@@ -243,7 +243,7 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr;
-  gap: var(--sp-3xl);
+  gap: var(--sp-2xl);
 }
 
 .footer-brand__name {
@@ -303,7 +303,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  flex-wrap: wrap;
+  
   gap: var(--sp-md);
 }
 
@@ -449,4 +449,38 @@
 
 @media (max-width: 480px) {
   .why-grid { grid-template-columns: 1fr; }
+}
+
+/* ── STAT ROW FIX — single row, no wrap ────────────────────── */
+.stat-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: var(--sp-xl) !important;
+  flex-wrap: nowrap !important;
+  justify-content: space-around !important;
+  padding: var(--sp-xl) 0 !important;
+}
+
+.stat-item__value { font-size: 2.4rem !important; }
+
+/* ── SECTION SPACING — reduce excessive gaps ────────────────── */
+.section { padding: var(--sp-2xl) 0 !important; }
+.section--tight { padding: var(--sp-xl) 0 !important; }
+
+/* ── WHY ITEMS — ensure visible on warm background ──────────── */
+.why-item {
+  background: rgba(255,255,255,0.72) !important;
+  border: 1px solid rgba(255,255,255,0.62) !important;
+  box-shadow: 0 4px 18px rgba(60,40,10,0.10), inset 0 1px 0 rgba(255,255,255,0.80) !important;
+}
+
+/* ── STEP CARDS — visible ────────────────────────────────────── */
+.step-card {
+  background: rgba(255,255,255,0.72) !important;
+  border: 1px solid rgba(255,255,255,0.62) !important;
+  box-shadow: 0 4px 18px rgba(60,40,10,0.10), inset 0 1px 0 rgba(255,255,255,0.80) !important;
+}
+
+@media (max-width: 640px) {
+  .stat-row { flex-wrap: wrap !important; gap: var(--sp-lg) !important; justify-content: center !important; }
 }

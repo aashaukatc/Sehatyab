@@ -137,8 +137,10 @@ export function renderPricing(productSlug = null, whatsappMsg = null) {
 
   const cards = prices.sizes.map((s, i) => {
     const featured = i === 2 ? 'price-card--featured glass-price' : 'glass-price';
+    const badge = i === 2 ? '<span class="price-badge">Best Value</span>' : '';
     return `
     <div class="glass-card price-card ${featured}">
+      ${badge}
       <div class="price-card__weight">${s.weight}</div>
       <div class="price-card__label">${s.label}</div>
       <div class="price-card__price">${s.price}</div>

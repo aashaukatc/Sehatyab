@@ -1,5 +1,5 @@
 /* ================================================================
-   nav.css — Sehatyaab Fresh Batch — Premium Polish Pass
+   nav.css — Nav overflow fix + contrast
    ================================================================ */
 
 .site-nav {
@@ -10,9 +10,9 @@
   max-width: var(--content-xl);
   margin: 0 auto;
   height: 68px;
+  gap: var(--sp-md);
 }
 
-/* ── LOGO ────────────────────────────────────────────────────── */
 .nav-logo {
   display: flex;
   flex-direction: column;
@@ -20,66 +20,49 @@
   text-decoration: none;
   cursor: pointer;
   padding: var(--sp-sm) 0;
+  flex-shrink: 0;
 }
+.nav-logo__name { font-family: var(--font-display); font-size: 1.18rem; font-weight: 600; color: var(--brand-green); letter-spacing: -0.01em; line-height: 1.1; }
+.nav-logo__sub  { font-family: var(--font-body); font-size: 0.58rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--brand-earth); opacity: 0.80; }
 
-.nav-logo__name {
-  font-family: var(--font-display);
-  font-size: 1.22rem;
-  font-weight: 600;
-  color: var(--brand-green);
-  letter-spacing: -0.01em;
-  line-height: 1.1;
-}
-
-.nav-logo__sub {
-  font-family: var(--font-body);
-  font-size: 0.60rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--brand-earth);
-  opacity: 0.75;
-}
-
-/* ── LINKS ───────────────────────────────────────────────────── */
 .nav-links {
   display: flex;
   align-items: center;
-  gap: var(--sp-lg);
+  gap: var(--sp-md);
+  flex: 1;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .nav-links a {
   font-family: var(--font-body);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 500;
   color: var(--brand-muted);
   transition: color var(--t-fast);
-  letter-spacing: 0.01em;
+  white-space: nowrap;
 }
-
-.nav-links a:hover { color: var(--brand-green); }
+.nav-links a:hover  { color: var(--brand-green); }
 .nav-links a.active { color: var(--brand-green); font-weight: 600; }
 
-/* Theme pills */
+/* Compact theme pills */
 .nav-pill {
-  padding: 0.32rem 0.85rem;
+  padding: 0.28rem 0.75rem;
   border-radius: var(--r-pill);
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   transition: all var(--t-fast);
   border: 1px solid transparent;
+  white-space: nowrap;
 }
+.fuel-pill    { color: var(--fuel-accent);    border-color: var(--fuel-border-soft);    background: rgba(122,182,72,0.08); }
+.nurture-pill { color: var(--nurture-accent); border-color: var(--nurture-border-soft); background: rgba(184,105,58,0.08); }
+.glow-pill    { color: var(--glow-accent);    border-color: var(--glow-border-soft);    background: rgba(196,94,136,0.08); }
+.fuel-pill:hover    { background: rgba(122,182,72,0.16); }
+.nurture-pill:hover { background: rgba(184,105,58,0.16); }
+.glow-pill:hover    { background: rgba(196,94,136,0.16); }
 
-.fuel-pill    { color: var(--fuel-accent);    border-color: var(--fuel-border-soft);    background: rgba(122,182,72,0.06); }
-.nurture-pill { color: var(--nurture-accent); border-color: var(--nurture-border-soft); background: rgba(201,125,78,0.06); }
-.glow-pill    { color: var(--glow-accent);    border-color: var(--glow-border-soft);    background: rgba(212,120,154,0.06); }
-
-.fuel-pill:hover    { background: rgba(122,182,72,0.14);  }
-.nurture-pill:hover { background: rgba(201,125,78,0.14);  }
-.glow-pill:hover    { background: rgba(212,120,154,0.14); }
-
-/* Nav CTA */
 .nav-cta {
   display: inline-flex;
   align-items: center;
@@ -92,18 +75,15 @@
   font-weight: 600;
   letter-spacing: 0.02em;
   transition: all var(--t-fast);
-  box-shadow: 0 2px 12px rgba(45,90,39,0.28), inset 0 1px 0 rgba(255,255,255,0.18);
+  box-shadow: 0 2px 12px rgba(45,90,39,0.32);
   cursor: pointer;
   border: none;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
+.nav-cta:hover { background: linear-gradient(135deg,#5a8e50,var(--brand-green-light)); transform: translateY(-1px); box-shadow: 0 4px 18px rgba(45,90,39,0.40); }
 
-.nav-cta:hover {
-  background: linear-gradient(135deg, #5a8e50, var(--brand-green-light));
-  transform: translateY(-1px);
-  box-shadow: 0 4px 18px rgba(45,90,39,0.36), inset 0 1px 0 rgba(255,255,255,0.22);
-}
-
-/* ── HAMBURGER ───────────────────────────────────────────────── */
+/* Hamburger */
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -114,61 +94,43 @@
   border: none;
   z-index: 110;
   border-radius: var(--r-sm);
-  transition: background var(--t-fast);
+  flex-shrink: 0;
 }
-
-.nav-toggle:hover { background: rgba(45,90,39,0.06); }
-
-.nav-toggle span {
-  display: block;
-  width: 22px; height: 2px;
-  background: var(--brand-green);
-  border-radius: 2px;
-  transition: transform var(--t-base), opacity var(--t-base);
-}
-
+.nav-toggle span { display: block; width: 22px; height: 2px; background: var(--brand-green); border-radius: 2px; transition: transform var(--t-base), opacity var(--t-base); }
 .nav-toggle.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav-toggle.is-open span:nth-child(2) { opacity: 0; }
 .nav-toggle.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* ── MOBILE MENU ─────────────────────────────────────────────── */
+/* Mobile menu */
 .nav-mobile-menu {
   display: none;
   position: fixed;
   top: 68px; left: 0; right: 0;
-  background: rgba(255,255,255,0.96);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border-bottom: 1px solid rgba(255,255,255,0.55);
-  box-shadow: 0 8px 32px rgba(35,24,12,0.10);
+  background: rgba(237,224,200,0.97);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border-bottom: 1px solid rgba(255,255,255,0.50);
+  box-shadow: 0 8px 28px rgba(60,40,10,0.12);
   z-index: 99;
   padding: var(--sp-md) var(--sp-xl) var(--sp-xl);
   flex-direction: column;
   gap: 0;
 }
-
 .nav-mobile-menu.is-open { display: flex; }
-
-.nav-mobile-menu a {
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--brand-charcoal);
-  padding: var(--sp-md) 0;
-  border-bottom: 1px solid var(--brand-border);
-  display: block;
-  transition: color var(--t-fast);
-}
-
+.nav-mobile-menu a { font-family: var(--font-body); font-size: 0.95rem; font-weight: 500; color: var(--brand-charcoal); padding: var(--sp-md) 0; border-bottom: 1px solid var(--brand-border); display: block; transition: color var(--t-fast); }
 .nav-mobile-menu a:last-child { border-bottom: none; }
-.nav-mobile-menu a:hover      { color: var(--brand-green); }
+.nav-mobile-menu a:hover { color: var(--brand-green); }
+
+@media (max-width: 1024px) {
+  /* Hide product pills at medium screens, keep home + order */
+  .nav-pill { display: none; }
+}
 
 @media (max-width: 768px) {
   .nav-links  { display: none; }
   .nav-toggle { display: flex; }
   .site-nav   { padding: 0 var(--sp-lg); }
 }
-
 @media (max-width: 480px) {
   .site-nav { padding: 0 var(--sp-md); }
 }
