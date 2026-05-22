@@ -159,3 +159,33 @@ Rawalpindi, Pakistan
 - [ ] Confirm packaging material type
 - [ ] Confirm delivery areas beyond Rawalpindi/Islamabad
 - [ ] Get lab-tested nutrition values to replace indicative values
+
+---
+
+## Premium Polish Pass — Export Notes
+
+### Recommended Export Sizes (Canva)
+
+| Asset | Size | Format |
+|---|---|---|
+| Visiting card front | 3.5" × 2" (900×514px @300dpi) | PDF Print / PNG |
+| Visiting card back  | 3.5" × 2" (900×514px @300dpi) | PDF Print / PNG |
+| Product label / sticker | 70mm × 50mm | PDF Print |
+| Brochure panel (tri-fold) | A4 folded (99mm per panel) | PDF Print |
+| QR order card | 85mm × 55mm | PDF Print / PNG |
+| Instagram post | 1080 × 1080px | PNG / JPG |
+| WhatsApp status | 1080 × 1920px | PNG |
+
+### Print Finish Recommendations
+- **Visiting cards**: Matte lamination (premium feel), rounded corners optional
+- **Product labels**: Kraft paper base or cream matte stock — matches brand warmth
+- **QR cards**: Gloss UV spot on QR code against matte card background
+- **Brochure**: 130gsm matte coated, tri-fold
+
+### QR Minimum Size
+- Print: minimum 20mm × 20mm with 4mm quiet zone
+- Digital: minimum 150px × 150px
+
+### Asset Classes in CSS
+Use `.visiting-card--front/.visiting-card--back`, `.label-card--fuel/--nurture/--glow`,
+`.brochure-panel`, `.qr-card`, `.asset-preview-grid` — all defined in `print-assets.css`.

@@ -1,66 +1,110 @@
 /* ================================================================
    base.css — Sehatyaab Fresh Batch
    Design tokens, CSS variables, typography, resets
+   Premium Polish Pass — Matte Aurora Glass Luxury
    ================================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 
 /* ── DESIGN TOKENS ────────────────────────────────────────────── */
 :root {
-  /* Brand Palette */
-  --brand-green:       #2d5a27;
-  --brand-green-light: #4a7c42;
-  --brand-green-pale:  #e8f0e6;
-  --brand-cream:       #f9f5ef;
-  --brand-cream-warm:  #f2ead8;
-  --brand-gold:        #c9a84c;
-  --brand-gold-pale:   #f0e5c4;
-  --brand-earth:       #8b6b4a;
-  --brand-charcoal:    #1e1e1e;
-  --brand-muted:       #5c5c5c;
-  --brand-border:      rgba(0, 0, 0, 0.07);
+  /* Brand Palette — warm, organic, trustworthy */
+  --brand-green:        #2d5a27;
+  --brand-green-light:  #4a7c42;
+  --brand-green-deep:   #1d3d1a;
+  --brand-green-pale:   #e8f0e6;
+  --brand-cream:        #faf6f0;
+  --brand-cream-warm:   #f3e9d6;
+  --brand-cream-cool:   #f7f4ef;
+  --brand-ivory:        #fefcf8;
+  --brand-gold:         #c9a84c;
+  --brand-gold-soft:    #d4b96a;
+  --brand-gold-pale:    #f0e5c4;
+  --brand-earth:        #8b6b4a;
+  --brand-earth-light:  #a88060;
+  --brand-clay:         #c4825a;
+  --brand-charcoal:     #1c1c1c;
+  --brand-charcoal-soft:#2e2e2e;
+  --brand-muted:        #5a5a5a;
+  --brand-muted-light:  #7a7a7a;
+  --brand-border:       rgba(0,0,0,0.065);
+  --brand-border-soft:  rgba(0,0,0,0.04);
 
-  /* Fuel (Protein) — Charcoal + Lime */
-  --fuel-primary:   #1a2420;
-  --fuel-accent:    #7ab648;
-  --fuel-glow:      rgba(122, 182, 72, 0.18);
-  --fuel-bg:        #1e2b1e;
-  --fuel-text:      #e8f4e0;
-  --fuel-muted:     rgba(232, 244, 224, 0.6);
-  --fuel-border:    rgba(122, 182, 72, 0.25);
+  /* Fuel (Protein) — Charcoal + Lime — strength, focus, control */
+  --fuel-primary:    #141e14;
+  --fuel-surface:    #1a2a1a;
+  --fuel-accent:     #7ab648;
+  --fuel-accent-soft:#96cc65;
+  --fuel-glow:       rgba(122,182,72,0.16);
+  --fuel-glow-deep:  rgba(122,182,72,0.28);
+  --fuel-bg:         #111c11;
+  --fuel-text:       #e4f2d8;
+  --fuel-muted:      rgba(228,242,216,0.55);
+  --fuel-border:     rgba(122,182,72,0.22);
+  --fuel-border-soft:rgba(122,182,72,0.12);
 
-  /* Nurture (Crunch) — Cream + Kraft + Clay */
-  --nurture-primary: #5a3e28;
+  /* Nurture (Crunch) — Cream + Kraft + Clay — care, safety, family */
+  --nurture-primary: #4e3420;
+  --nurture-surface: #f8f0e4;
   --nurture-accent:  #c97d4e;
-  --nurture-glow:    rgba(201, 125, 78, 0.15);
+  --nurture-warm:    #d4956a;
+  --nurture-glow:    rgba(201,125,78,0.13);
+  --nurture-glow-deep:rgba(201,125,78,0.22);
   --nurture-bg:      #fdf6ed;
-  --nurture-text:    #3d2b1a;
-  --nurture-muted:   rgba(61, 43, 26, 0.6);
-  --nurture-border:  rgba(201, 125, 78, 0.25);
+  --nurture-text:    #3a2616;
+  --nurture-muted:   rgba(58,38,22,0.55);
+  --nurture-border:  rgba(201,125,78,0.22);
+  --nurture-border-soft:rgba(201,125,78,0.10);
 
-  /* Glow (Nourish) — Cream + Blush + Rose */
-  --glow-primary:  #4a2535;
-  --glow-accent:   #d4789a;
-  --glow-glow:     rgba(212, 120, 154, 0.15);
-  --glow-bg:       #fdf5f7;
-  --glow-text:     #3a2030;
-  --glow-muted:    rgba(58, 32, 48, 0.6);
-  --glow-border:   rgba(212, 120, 154, 0.25);
+  /* Glow (Nourish) — Blush + Gold + Cream — beauty, calm, ritual */
+  --glow-primary:    #3e1f30;
+  --glow-surface:    #fdf4f6;
+  --glow-accent:     #d4789a;
+  --glow-warm:       #de8fad;
+  --glow-glow:       rgba(212,120,154,0.13);
+  --glow-glow-deep:  rgba(212,120,154,0.22);
+  --glow-bg:         #fef5f8;
+  --glow-text:       #30182a;
+  --glow-muted:      rgba(48,24,42,0.55);
+  --glow-border:     rgba(212,120,154,0.22);
+  --glow-border-soft:rgba(212,120,154,0.10);
 
-  /* Aurora Glass */
-  --glass-bg:           rgba(255, 255, 255, 0.35);
-  --glass-bg-strong:    rgba(255, 255, 255, 0.55);
-  --glass-border:       rgba(255, 255, 255, 0.4);
-  --glass-shadow:       0 4px 30px rgba(0, 0, 0, 0.04), inset 0 1px 1px rgba(255, 255, 255, 0.3);
-  --glass-shadow-hover: 0 8px 40px rgba(0, 0, 0, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.4);
-  --glass-blur:         blur(25px) saturate(180%);
+  /* ── MATTE AURORA GLASS SYSTEM ─────────────────────────────── */
+  /* Base glass recipe */
+  --glass-bg:           rgba(255,255,255,0.38);
+  --glass-bg-strong:    rgba(255,255,255,0.58);
+  --glass-bg-matte:     rgba(250,246,240,0.52);
+  --glass-border:       rgba(255,255,255,0.48);
+  --glass-border-shine: rgba(255,255,255,0.72);
+  --glass-blur:         blur(28px) saturate(175%);
+  --glass-blur-light:   blur(16px) saturate(155%);
+  --glass-blur-heavy:   blur(42px) saturate(190%);
+
+  /* Glass shadows — warm organic depth */
+  --glass-shadow-sm:
+    0 4px 16px rgba(35,24,12,0.07),
+    inset 0 1px 0 rgba(255,255,255,0.65);
+  --glass-shadow-md:
+    0 12px 40px rgba(35,24,12,0.10),
+    0 4px 14px rgba(35,24,12,0.06),
+    inset 0 1px 0 rgba(255,255,255,0.70),
+    inset 0 -1px 0 rgba(255,255,255,0.16);
+  --glass-shadow-lg:
+    0 24px 70px rgba(35,24,12,0.13),
+    0 8px 22px rgba(35,24,12,0.07),
+    inset 0 1px 0 rgba(255,255,255,0.75),
+    inset 0 -1px 0 rgba(255,255,255,0.18);
+  --glass-shadow-hover:
+    0 32px 80px rgba(35,24,12,0.16),
+    0 12px 30px rgba(35,24,12,0.09),
+    inset 0 1px 0 rgba(255,255,255,0.80);
 
   /* Typography */
-  --font-display: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
-  --font-body:    'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-accent:  'Playfair Display', Georgia, serif;
+  --font-display: 'Cormorant Garamond','Playfair Display',Georgia,serif;
+  --font-body:    'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --font-accent:  'Playfair Display',Georgia,serif;
 
-  /* Spacing scale */
+  /* Spacing */
   --sp-xs:  0.25rem;
   --sp-sm:  0.5rem;
   --sp-md:  1rem;
@@ -71,19 +115,20 @@
   --sp-4xl: 6rem;
 
   /* Radii */
-  --r-sm:  8px;
-  --r-md:  16px;
-  --r-lg:  24px;
-  --r-xl:  32px;
+  --r-sm:   8px;
+  --r-md:   16px;
+  --r-lg:   24px;
+  --r-xl:   32px;
+  --r-2xl:  40px;
   --r-pill: 100px;
 
   /* Transitions */
   --t-fast:   0.15s ease;
-  --t-base:   0.3s ease;
-  --t-slow:   0.6s ease;
-  --t-spring: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --t-base:   0.28s ease;
+  --t-slow:   0.55s ease;
+  --t-spring: 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
 
-  /* Content max widths */
+  /* Content widths */
   --content-sm:  640px;
   --content-md:  800px;
   --content-lg: 1100px;
@@ -114,108 +159,62 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  background: none;
-  font: inherit;
-}
-
-ul, ol {
-  list-style: none;
-}
+img { display: block; max-width: 100%; height: auto; }
+a   { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font: inherit; }
+ul, ol { list-style: none; }
 
 /* ── TYPOGRAPHY ───────────────────────────────────────────────── */
-h1, h2, h3, h4, h5, h6 {
+h1,h2,h3,h4,h5,h6 {
   font-family: var(--font-display);
-  line-height: 1.15;
+  line-height: 1.12;
   font-weight: 400;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
+  color: var(--brand-charcoal);
 }
 
-h1 { font-size: clamp(2.2rem, 6vw, 4.5rem); }
-h2 { font-size: clamp(1.8rem, 4vw, 3rem);   }
-h3 { font-size: clamp(1.3rem, 3vw, 2rem);   }
-h4 { font-size: clamp(1.1rem, 2.5vw, 1.5rem); }
+h1 { font-size: clamp(2.4rem,6vw,4.8rem); }
+h2 { font-size: clamp(1.9rem,4vw,3.2rem); }
+h3 { font-size: clamp(1.25rem,3vw,2rem);  }
+h4 { font-size: clamp(1.05rem,2vw,1.45rem); }
 
-.display-serif {
-  font-family: var(--font-display);
-  font-style: italic;
-}
-
-.display-bold {
-  font-family: var(--font-display);
-  font-weight: 600;
-}
+.display-serif { font-family: var(--font-display); font-style: italic; }
+.display-bold  { font-family: var(--font-display); font-weight: 600; }
 
 p {
   font-family: var(--font-body);
   font-size: 1rem;
-  line-height: 1.75;
+  line-height: 1.78;
   color: var(--brand-muted);
 }
 
-p.lead {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  line-height: 1.7;
-}
+p.lead { font-size: clamp(1rem,2vw,1.18rem); line-height: 1.72; }
 
-/* ── UTILITY CLASSES ─────────────────────────────────────────── */
+/* ── LAYOUT UTILITIES ────────────────────────────────────────── */
 .sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border-width:0;
 }
 
 .container {
-  width: 100%;
+  width:100%;
   max-width: var(--content-lg);
   margin: 0 auto;
-  padding: 0 var(--sp-lg);
+  padding: 0 var(--sp-xl);
 }
+.container--wide   { max-width: var(--content-xl); }
+.container--narrow { max-width: var(--content-md); }
 
-.container--wide {
-  max-width: var(--content-xl);
-}
+.text-center { text-align:center; }
 
-.container--narrow {
-  max-width: var(--content-md);
-}
-
-.text-center { text-align: center; }
-.text-left   { text-align: left; }
-.text-right  { text-align: right; }
-
-.section {
-  padding: var(--sp-4xl) 0;
-}
-
-.section--tight {
-  padding: var(--sp-3xl) 0;
-}
+.section       { padding: var(--sp-4xl) 0; }
+.section--tight{ padding: var(--sp-3xl) 0; }
 
 .section-label {
   font-family: var(--font-body);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--brand-green);
   margin-bottom: var(--sp-md);
@@ -229,14 +228,14 @@ p.lead {
 
 .section-subtext {
   font-family: var(--font-body);
-  font-size: 1.05rem;
-  line-height: 1.75;
+  font-size: 1.02rem;
+  line-height: 1.78;
   color: var(--brand-muted);
-  max-width: 600px;
+  max-width: 580px;
   margin: 0 auto var(--sp-xl);
 }
 
-/* ── ACCESSIBILITY ────────────────────────────────────────────── */
+/* ── ACCESSIBILITY ───────────────────────────────────────────── */
 :focus-visible {
   outline: 2px solid var(--brand-green);
   outline-offset: 3px;
@@ -245,9 +244,9 @@ p.lead {
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+    animation-duration:       0.01ms !important;
+    animation-iteration-count:1      !important;
+    transition-duration:      0.01ms !important;
+    scroll-behavior:          auto   !important;
   }
 }
